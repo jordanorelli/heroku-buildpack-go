@@ -495,7 +495,8 @@ case ${TOOL} in
         # massagePkgSpecForVendor
 
         step "Running: go install -v ."
-        go install -v -tags heroku . 2>&1
+        go install -v -tags heroku 2>&1
+        echo "$(ls ${GOPATH}/bin)"
     ;;
     gb)
         GOPATH="${cache}/gb/${GBVersion}"
