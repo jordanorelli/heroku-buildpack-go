@@ -454,13 +454,13 @@ case ${TOOL} in
         # ensureBZR ${BazaarVersion}
 
         # Do this before setupGOPATH as we need ${name} set first
-        # step "navigating to build dir ${build}"
-        # cd "${build}"
-        # name=$(glide name 2>/dev/null)
+        step "navigating to build dir ${build}"
+        cd "${build}"
+        name="."
 
-        # step "setting up go path: ${name}"
-        # setupGOPATH ${name}
-        # eval "$(setupGOPATH ${name})"
+        step "setting up go path: ${name}"
+        setupGOPATH ${name}
+        eval "$(setupGOPATH ${name})"
 
         # pkgs=${GO_INSTALL_PACKAGE_SPEC:-"default"}
         # handleDefaultPkgSpec
