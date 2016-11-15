@@ -463,11 +463,13 @@ case ${TOOL} in
 
         step "hating my life"
         t="$(mktemp -d)"
-        step "moving build contents into ${t}"
-        mv -t ${t} ${build}/*
+        xxx="${t}/src/maddness"
+        mkdir -vp "${xxx}"
+        step "moving build contents into ${xxx}"
+        mv -t ${xxx} ${build}/*
         GOPATH="${t}"
-        cd ${t}
-        step "ok we're in ${t} now"
+        cd ${xxx}
+        step "ok we're in $(pwd) now"
 
         # step "setting up go path: ${name}"
         # setupGOPATH ${name}
