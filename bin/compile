@@ -496,7 +496,7 @@ case ${TOOL} in
 
         step "Running: go install -v ."
         go install -v -tags heroku 2>&1
-        PATH="${GOPATH}/bin:${PATH}"
+        export PATH="${GOPATH}/bin:${PATH}"
         echo "$(ls ${GOPATH}/bin)"
         which madness
     ;;
@@ -543,7 +543,7 @@ if ! test -e $build/Procfile && test -n "${name}"
 then
   echo some dumb shit is happening here
   # echo -e "web: $(basename $name)" >> $build/Procfile
-  echo -e "web: madness" >> $build/Procfile
+  echo -e "web: $(which madness)" >> $build/Procfile
   cat $build/Procfile
 fi
 
