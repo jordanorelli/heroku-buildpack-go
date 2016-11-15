@@ -3,6 +3,9 @@
 
 set -eo pipefail
 
+step "buildpack env"
+printenv
+
 mkdir -p "$1" "$2"
 build=$(cd "$1/" && pwd)
 cache=$(cd "$2/" && pwd)
@@ -457,6 +460,13 @@ case ${TOOL} in
         step "navigating to build dir ${build}"
         cd "${build}"
         name="."
+
+        step "hating my life"
+        local t="$(mktemp -d)"
+        step "moving build contents into ${t}"
+        mv -t ${t} ${build}/*
+        GOPATH="${build}"
+
 
         # step "setting up go path: ${name}"
         # setupGOPATH ${name}
