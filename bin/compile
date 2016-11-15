@@ -466,6 +466,10 @@ case ${TOOL} in
         cd "${src}"
 
         step "Assuming all dependencies are checked into the vendor dir"
+        echo "go version: $(go version)"
+        echo "glide version: $(glide --version)"
+        echo "pwd: $(pwd)"
+        echo "vendor contents: $(ls -m vendor)"
         # step "Fetching any unsaved dependencies (glide install)"
         # glide install 2>&1
 
