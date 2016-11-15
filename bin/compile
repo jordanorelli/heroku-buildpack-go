@@ -281,6 +281,8 @@ determineTool
 
 step "buildpack env"
 printenv
+step "buildpack args"
+echo $@
 
 ver=$(expandVer $ver)
 url=${GOURL:-$(urlFor $ver)}
