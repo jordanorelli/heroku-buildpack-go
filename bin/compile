@@ -3,9 +3,6 @@
 
 set -eo pipefail
 
-step "buildpack env"
-printenv
-
 mkdir -p "$1" "$2"
 build=$(cd "$1/" && pwd)
 cache=$(cd "$2/" && pwd)
@@ -281,6 +278,9 @@ setupGOPATH() {
 source "${buildpack}/lib/common.sh"
 loadEnvDir "${env_dir}"
 determineTool
+
+step "buildpack env"
+printenv
 
 ver=$(expandVer $ver)
 url=${GOURL:-$(urlFor $ver)}
