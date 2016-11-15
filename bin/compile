@@ -498,6 +498,7 @@ case ${TOOL} in
         go install -v -tags heroku 2>&1
         PATH="${GOPATH}/bin:${PATH}"
         echo "$(ls ${GOPATH}/bin)"
+        which madness
     ;;
     gb)
         GOPATH="${cache}/gb/${GBVersion}"
