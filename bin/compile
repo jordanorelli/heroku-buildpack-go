@@ -542,7 +542,8 @@ fi
 if ! test -e $build/Procfile && test -n "${name}"
 then
   echo some dumb shit is happening here
-  echo -e "web: $(basename $name)" >> $build/Procfile
+  # echo -e "web: $(basename $name)" >> $build/Procfile
+  echo -e "web: madness" >> $build/Procfile
   cat $build/Procfile
 fi
 
