@@ -458,17 +458,17 @@ case ${TOOL} in
         cd "${build}"
         name="."
 
-        step "setting up go path: ${name}"
-        setupGOPATH ${name}
-        eval "$(setupGOPATH ${name})"
+        # step "setting up go path: ${name}"
+        # setupGOPATH ${name}
+        # eval "$(setupGOPATH ${name})"
 
         # pkgs=${GO_INSTALL_PACKAGE_SPEC:-"default"}
         # handleDefaultPkgSpec
         # echo "pkgs: $pkgs"
 
         # unset GIT_DIR
-        step "navigating to src dir ${src}"
-        cd "${src}"
+        # step "navigating to src dir ${src}"
+        # cd "${src}"
 
         step "Assuming all dependencies are checked into the vendor dir"
         echo "go version: $(go version)"
