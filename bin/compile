@@ -463,7 +463,7 @@ case ${TOOL} in
 
         step "hating my life"
         t="$(mktemp -d)"
-        xxx="${t}/src/maddness"
+        xxx="${t}/src/madness"
         mkdir -vp "${xxx}"
         step "moving build contents into ${xxx}"
         mv -t ${xxx} ${build}/*
