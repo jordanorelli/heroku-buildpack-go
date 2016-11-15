@@ -462,7 +462,7 @@ case ${TOOL} in
         name="."
 
         step "hating my life"
-        local t="$(mktemp -d)"
+        t="$(mktemp -d)"
         step "moving build contents into ${t}"
         mv -t ${t} ${build}/*
         GOPATH="${t}"
