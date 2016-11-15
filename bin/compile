@@ -281,8 +281,6 @@ determineTool
 
 step "buildpack env"
 printenv
-step "buildpack args"
-echo $@
 
 ver=$(expandVer $ver)
 url=${GOURL:-$(urlFor $ver)}
@@ -467,8 +465,9 @@ case ${TOOL} in
         local t="$(mktemp -d)"
         step "moving build contents into ${t}"
         mv -t ${t} ${build}/*
-        GOPATH="${build}"
-
+        GOPATH="${t}"
+        cd ${t}
+        step "ok we're in ${t} now"
 
         # step "setting up go path: ${name}"
         # setupGOPATH ${name}
