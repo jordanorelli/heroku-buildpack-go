@@ -535,12 +535,15 @@ esac
 
 if test ! -z "${src}" -a "${src}" != "${build}" -a -e "${src}/Procfile"
 then
+  echo dunno what this block is doing
   mv -t "${build}" "${src}/Procfile"
 fi
 
 if ! test -e $build/Procfile && test -n "${name}"
 then
+  echo some dumb shit is happening here
   echo -e "web: $(basename $name)" >> $build/Procfile
+  cat $build/Procfile
 fi
 
 cd $build
