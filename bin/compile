@@ -475,7 +475,7 @@ case ${TOOL} in
         # echo "glide version: $(glide --version)"
         echo "pwd: $(pwd)"
         echo "vendor contents: $(ls -m vendor)"
-        tree -d -L 3 vendor/github.com
+        ls -1 -d -R vendor/github.com/*/*/*/
         # step "Fetching any unsaved dependencies (glide install)"
         # glide install 2>&1
 
