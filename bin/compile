@@ -496,6 +496,7 @@ case ${TOOL} in
 
         step "Running: go install -v ."
         go install -v -tags heroku 2>&1
+        PATH="${GOPATH}/bin:${PATH}"
         echo "$(ls ${GOPATH}/bin)"
     ;;
     gb)
