@@ -449,39 +449,40 @@ case ${TOOL} in
         go install -v "${FLAGS[@]}" ${pkgs} 2>&1
     ;;
     glide)
-        ensureGlide ${GlideVersion}
-        ensureHG ${MercurialVersion}
+        # ensureGlide ${GlideVersion}
+        # ensureHG ${MercurialVersion}
         # ensureBZR ${BazaarVersion}
 
         # Do this before setupGOPATH as we need ${name} set first
-        step "navigating to build dir ${build}"
-        cd "${build}"
-        name=$(glide name 2>/dev/null)
+        # step "navigating to build dir ${build}"
+        # cd "${build}"
+        # name=$(glide name 2>/dev/null)
 
-        step "setting up go path: ${name}"
-        setupGOPATH ${name}
-        eval "$(setupGOPATH ${name})"
+        # step "setting up go path: ${name}"
+        # setupGOPATH ${name}
+        # eval "$(setupGOPATH ${name})"
 
-        pkgs=${GO_INSTALL_PACKAGE_SPEC:-"default"}
-        handleDefaultPkgSpec
-        echo "pkgs: $pkgs"
+        # pkgs=${GO_INSTALL_PACKAGE_SPEC:-"default"}
+        # handleDefaultPkgSpec
+        # echo "pkgs: $pkgs"
 
-        unset GIT_DIR
+        # unset GIT_DIR
         step "navigating to src dir ${src}"
         cd "${src}"
 
         step "Assuming all dependencies are checked into the vendor dir"
         echo "go version: $(go version)"
-        echo "glide version: $(glide --version)"
+        # echo "glide version: $(glide --version)"
         echo "pwd: $(pwd)"
         echo "vendor contents: $(ls -m vendor)"
+        tree -d -L 3 vendor/github.com
         # step "Fetching any unsaved dependencies (glide install)"
         # glide install 2>&1
 
-        massagePkgSpecForVendor
+        # massagePkgSpecForVendor
 
-        step "Running: go install -v ${FLAGS[@]} ${pkgs}"
-        go install -v "${FLAGS[@]}" ${pkgs} 2>&1
+        step "Running: go install -v ."
+        go install -v . 2>&1
     ;;
     gb)
         GOPATH="${cache}/gb/${GBVersion}"
