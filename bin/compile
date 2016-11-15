@@ -465,8 +465,9 @@ case ${TOOL} in
         unset GIT_DIR
         cd "${src}"
 
-        step "Fetching any unsaved dependencies (glide install)"
-        glide install 2>&1
+        step "Assuming all dependencies are checked into the vendor dir"
+        # step "Fetching any unsaved dependencies (glide install)"
+        # glide install 2>&1
 
         massagePkgSpecForVendor
 
